@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Heart, Truck } from 'lucide-react';
 import { products } from '@/data/products';
+import ProductCard from '@/components/shop/ProductCard';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -149,19 +150,11 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
-              <Link to={`/product/${product.id}`} key={product.id} className="featured-product product-card group">
-                <div className="product-card-image">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <div className="product-card-content">
-                  <h3 className="font-semibold mb-2">{product.name}</h3>
-                  <p className="text-primary text-lg">${product.price.toFixed(2)}</p>
-                </div>
-              </Link>
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                className="featured-product"
+              />
             ))}
           </div>
           
