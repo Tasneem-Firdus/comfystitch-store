@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
@@ -58,7 +57,13 @@ const HomePage = () => {
         opacity: 0,
         stagger: 0.2,
         duration: 0.8,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        onComplete: () => {
+          // Make sure products are visible after animation
+          document.querySelectorAll('.featured-product').forEach(el => {
+            (el as HTMLElement).style.opacity = '1';
+          });
+        }
       });
     }
     

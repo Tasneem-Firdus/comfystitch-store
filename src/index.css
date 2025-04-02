@@ -76,7 +76,8 @@
     @apply p-4;
   }
   
+  /* Remove opacity-0 to make featured products visible */
   .featured-product {
-    @apply opacity-0;
+    @apply opacity-100;
   }
 }
